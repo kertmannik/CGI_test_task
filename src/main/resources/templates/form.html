@@ -11,6 +11,7 @@
     <script src="form.js"></script>
 </head>
 <body>
+<div th:replace="menu :: main-menu"></div>
 <form action="#" th:action="@{/}" th:object="${dentistVisitDTO}" method="post">
     <table>
         <tr>
