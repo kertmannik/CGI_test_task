@@ -1,4 +1,15 @@
+<!DOCTYPE html>
 <html>
+<head>
+    <title>Registreerimine</title>
+    <link rel="stylesheet" type="text/css" href="bootstrap.min.css"/>
+    <link rel="stylesheet" type="text/css" href="jquery.datetimepicker.min.css"/>
+    <script type="text/javascript" src="jquery.min.js"></script>
+    <script type="text/javascript" src="jquery-ui.min.js"></script>
+    <script type="text/javascript" src="bootstrap.min.js"></script>
+    <script src="jquery.datetimepicker.full.min.js"></script>
+    <script src="form.js"></script>
+</head>
 <body>
 <form action="#" th:action="@{/}" th:object="${dentistVisitDTO}" method="post">
     <table>
@@ -11,6 +22,16 @@
             <td><p th:text="#{visiidi.kuupaev}">visiidi.kuupaev</p></td>
             <td><input type="text" th:field="*{visitTime}"/></td>
             <td th:if="${#fields.hasErrors('visitTime')}" th:errors="*{visitTime}">Kuupäeva viga</td>
+        </tr>
+        <tr>
+            <td><p th:text="#{perearsti.nimi}">perearsti.nimi</p></td>
+            <td><select th:field="*{familyDoctorName}">
+                <option th:each="familyDoctor : ${familyDoctors}"
+                        th:value="${familyDoctor.getFullName()}"
+                        th:text="${familyDoctor.getFullName()}">
+                </option>
+            <td th:if="${#fields.hasErrors('familyDoctorName')}" th:errors="*{familyDoctorName}">Perearsti viga</td>
+            </select></td>
         </tr>
         <tr>
             <td>

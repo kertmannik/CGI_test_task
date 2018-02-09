@@ -1,5 +1,6 @@
 package com.cgi.dentistapp.service;
 
+import java.time.LocalDateTime;
 import java.util.Date;
 import java.util.List;
 
@@ -18,8 +19,8 @@ public class DentistVisitService {
     @Autowired
     private DentistVisitDao dentistVisitDao;
 
-    public void addVisit(String dentistName, Date visitTime) {
-        DentistVisitEntity visit = new DentistVisitEntity(dentistName, visitTime);
+    public void addVisit(String dentistName, LocalDateTime visitTime, String doctorName) {
+        DentistVisitEntity visit = new DentistVisitEntity(visitTime, dentistName, doctorName);
         dentistVisitDao.create(visit);
     }
 
