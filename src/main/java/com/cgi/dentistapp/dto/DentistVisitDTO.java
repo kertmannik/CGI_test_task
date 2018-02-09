@@ -41,7 +41,7 @@ public class DentistVisitDTO {
         this.dentistName = dentistName;
     }
 
-    public String getfamilyDoctorName() {
+    public String getFamilyDoctorName() {
         return familyDoctorName;
     }
 

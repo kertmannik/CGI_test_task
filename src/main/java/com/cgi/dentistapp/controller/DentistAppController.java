@@ -1,10 +1,10 @@
 package com.cgi.dentistapp.controller;
 
 import com.cgi.dentistapp.dto.DentistVisitDTO;
+import com.cgi.dentistapp.dto.RegistrationsDTO;
 import com.cgi.dentistapp.visits.FamilyDoctor;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.autoconfigure.EnableAutoConfiguration;
-import org.springframework.context.MessageSource;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.validation.BindingResult;
@@ -48,8 +48,15 @@ public class DentistAppController extends WebMvcConfigurerAdapter {
             return "form";
         }
 
-        dentistVisitService.addVisit(dentistVisitDTO.getDentistName(), dentistVisitDTO.getVisitTime(), dentistVisitDTO.getfamilyDoctorName());
+        dentistVisitService.addVisit(dentistVisitDTO.getDentistName(), dentistVisitDTO.getVisitTime(), dentistVisitDTO.getFamilyDoctorName());
         return "redirect:/results";
     }
 
+    @GetMapping("visits")
+    public String showRegistrations(Model model,
+                             @ModelAttribute("searchQuery") RegistrationsDTO dto) {
+        model.addAttribute("familyDoctors", familyDoctors);
+        model.addAttribute("RegistrationsDTOs", dentistVisitService.listVisits());
+        return "visits";
+    }
 }

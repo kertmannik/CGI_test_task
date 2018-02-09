@@ -1,5 +1,9 @@
 package com.cgi.dentistapp.dao.entity;
 
+import lombok.AllArgsConstructor;
+import lombok.Data;
+import lombok.NoArgsConstructor;
+
 import java.time.LocalDateTime;
 import java.util.Date;
 
@@ -11,6 +15,9 @@ import javax.persistence.Id;
 import javax.persistence.Table;
 
 @Entity
+@Data
+@NoArgsConstructor
+@AllArgsConstructor
 @Table(name = "dentist_visit")
 public class DentistVisitEntity {
 

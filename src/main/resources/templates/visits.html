@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Registreerimine</title>
+    <link rel="stylesheet" type="text/css" href="bootstrap.min.css"/>
+    <link rel="stylesheet" type="text/css" href="jquery.datetimepicker.min.css"/>
+    <link rel="icon" href="logo.jpg"/>
+    <script type="text/javascript" src="jquery.min.js"></script>
+    <script type="text/javascript" src="jquery-ui.min.js"></script>
+    <script type="text/javascript" src="bootstrap.min.js"></script>
+    <script src="jquery.datetimepicker.full.min.js"></script>
+    <script src="form.js"></script>
+</head>
+<body>
+<div th:replace="menu :: main-menu"></div>
+<h3 th:text="#{visits.header}"></h3>
+<table class="table">
+    <tr>
+        <th th:text="#{visits.visitTime}"></th>
+        <th th:text="#{visits.dentist}"></th>
+        <th th:text="#{visits.familyDoctor}"></th>
+    </tr>
+    <tr th:each="registrationsDTO : ${registrationsDTOs}">
+        <td th:text="${registrationsDTO.getVisitTime()}"></td>
+        <td th:text="${registrationsDTO.getDentistName()}"></td>
+        <td th:text="${registrationsDTO.getFamilyDoctorName()}"></td>
+    </tr>
+</table>
+</body>
+</html>
