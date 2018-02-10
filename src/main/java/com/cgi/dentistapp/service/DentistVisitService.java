@@ -1,8 +1,6 @@
 package com.cgi.dentistapp.service;
 
 import java.sql.Timestamp;
-import java.time.LocalDateTime;
-import java.util.Date;
 import java.util.List;
 
 import javax.transaction.Transactional;
@@ -13,7 +11,6 @@ import org.springframework.stereotype.Service;
 
 import com.cgi.dentistapp.dao.DentistVisitDao;
 import com.cgi.dentistapp.dao.entity.DentistVisitEntity;
-import sun.security.krb5.internal.crypto.Des;
 
 @Service
 @Transactional
