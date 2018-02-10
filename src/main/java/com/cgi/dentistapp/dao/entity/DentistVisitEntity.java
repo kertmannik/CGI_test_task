@@ -56,6 +56,7 @@ public class DentistVisitEntity {
     public void setVisitTime( LocalDateTime visitTime) {
         this.visitTime = visitTime;
     }
+
     public String getDentistName() {
         return dentistName;
     }
