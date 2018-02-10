@@ -31,7 +31,7 @@ public class DentistVisitService {
         return dentistVisitDao.getAllVisits();
     }
 
-    public boolean isOverlaping(DentistVisitDTO dto){
+    public boolean isVisitOverlaping(DentistVisitDTO dto){
         if (dentistVisitDao.countOverlaps(Timestamp.valueOf(dto.getVisitTime()), dto.getDentistName())>0){
             return true;
         }

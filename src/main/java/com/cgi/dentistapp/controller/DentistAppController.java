@@ -49,7 +49,7 @@ public class DentistAppController extends WebMvcConfigurerAdapter {
             return "form";
         }
 
-        if(dentistVisitService.isOverlaping(dentistVisitDTO)){
+        if(dentistVisitService.isVisitOverlaping(dentistVisitDTO)){
             return "redirect:/overlaping";
         }
 
