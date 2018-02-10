@@ -4,7 +4,7 @@
 
 Antud projekt on kirjutatud CGI Java nooremarendaja kohale kandideerimiseks.
 
-Projekt on saadaval [Herokus](https://http://cgitesttask.herokuapp.com/).
+Projekt on saadaval [Herokus](https://cgitesttask.herokuapp.com/).
 
 ## Kasutusjuhend kasutajale
 ### Registreeringu tegemine
