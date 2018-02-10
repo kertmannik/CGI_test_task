@@ -56,7 +56,7 @@ public class DentistAppController extends WebMvcConfigurerAdapter {
     public String showRegistrations(Model model,
                              @ModelAttribute("searchQuery") RegistrationsDTO dto) {
         model.addAttribute("familyDoctors", familyDoctors);
-        model.addAttribute("RegistrationsDTOs", dentistVisitService.listVisits());
+        model.addAttribute("registrationsDTOs", dentistVisitService.listVisits());
         return "visits";
     }
 }
