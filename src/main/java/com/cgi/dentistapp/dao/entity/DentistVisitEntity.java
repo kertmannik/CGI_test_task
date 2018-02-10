@@ -4,6 +4,7 @@ import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
+import java.sql.Timestamp;
 import java.time.LocalDateTime;
 
 import javax.persistence.Column;
@@ -26,7 +27,7 @@ public class DentistVisitEntity {
     private Long id;
 
     @Column(name = "visit_time")
-    private LocalDateTime visitTime;
+    private Timestamp visitTime;
 
     @Column(name = "dentist_name")
     private String dentistName;
@@ -34,7 +35,7 @@ public class DentistVisitEntity {
     @Column(name = "doctor_name")
     private String familyDoctorName;
 
-    public DentistVisitEntity(LocalDateTime visitTime, String dentistName, String familyDoctorName) {
+    public DentistVisitEntity(Timestamp visitTime, String dentistName, String familyDoctorName) {
         this.visitTime = visitTime;
         this.dentistName = dentistName;
 
@@ -49,11 +50,11 @@ public class DentistVisitEntity {
         this.id = id;
     }
 
-    public  LocalDateTime getVisitTime() {
+    public  Timestamp getVisitTime() {
         return visitTime;
     }
 
-    public void setVisitTime( LocalDateTime visitTime) {
+    public void setVisitTime(Timestamp visitTime) {
         this.visitTime = visitTime;
     }
 

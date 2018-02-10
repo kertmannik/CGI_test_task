@@ -33,6 +33,7 @@ public class DentistAppController extends WebMvcConfigurerAdapter {
     @Override
     public void addViewControllers(ViewControllerRegistry registry) {
         registry.addViewController("/results").setViewName("results");
+        registry.addViewController("/overlaping").setViewName("overlaping");
     }
 
     @GetMapping("/")
@@ -48,7 +49,11 @@ public class DentistAppController extends WebMvcConfigurerAdapter {
             return "form";
         }
 
-        dentistVisitService.addVisit(dentistVisitDTO.getDentistName(), dentistVisitDTO.getVisitTime(), dentistVisitDTO.getFamilyDoctorName());
+        if(dentistVisitService.isOverlaping(dentistVisitDTO)){
+            return "redirect:/overlaping";
+        }
+
+        dentistVisitService.addVisit(dentistVisitDTO);
         return "redirect:/results";
     }
 
