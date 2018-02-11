@@ -3,6 +3,8 @@ package com.cgi.dentistapp.controller;
 import com.cgi.dentistapp.dto.DentistVisitDTO;
 import com.cgi.dentistapp.dto.RegistrationsDTO;
 import com.cgi.dentistapp.visits.FamilyDoctor;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.autoconfigure.EnableAutoConfiguration;
 import org.springframework.stereotype.Controller;
@@ -25,6 +27,8 @@ public class DentistAppController extends WebMvcConfigurerAdapter {
     @Autowired
     private DentistVisitService dentistVisitService;
 
+    Logger logger = LoggerFactory.getLogger(DentistAppController.class);
+
     private final List<FamilyDoctor> familyDoctors = Arrays.asList(
             new FamilyDoctor("Mrs", "Doctor"),
             new FamilyDoctor("Mr", "Doctor")
@@ -46,14 +50,20 @@ public class DentistAppController extends WebMvcConfigurerAdapter {
     public String postRegisterForm(@Valid DentistVisitDTO dentistVisitDTO, BindingResult bindingResult, Model model) {
         model.addAttribute("familyDoctors", familyDoctors);
         if (bindingResult.hasErrors()) {
+            logger.error("Error in registerform posting!");
             return "form";
         }
 
         if(dentistVisitService.isVisitOverlaping(dentistVisitDTO)){
+            logger.error("Error in registerform posting: overlaping visits!");
             return "redirect:/overlaping";
         }
 
         dentistVisitService.addVisit(dentistVisitDTO);
+        logger.info("Successful added an visit:" +
+                dentistVisitDTO.getDentistName() + ", " +
+                dentistVisitDTO.getFamilyDoctorName() + ", " +
+                dentistVisitDTO.getVisitTime());
         return "redirect:/results";
     }
 

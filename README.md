@@ -65,3 +65,5 @@ Sain kasutada Githubi ja Sourcetree'd. Kasutasin branch'e ja üritasin commit'e 
 Lisaks panin projektile juurde Travis CI, mida soovitas minu mentor kasutada isiklike projekte kirjutades.
 
 Ma ei tea, kas seda on näha, aga üritasin järgida raamatu Clean Code näpunäiteid, nt meetod isVisitOverlaping(DentistVisitDTO dto) nimetus on kirjutatud väga selgelt ja mõistetavalt. Ei pea meetodi sisse minema, et mõista, mida ta teeb, vaid nimest saab koheselt aru.
+
+Lisasin ka minimaalse logimise DentistAppController klassi.
