@@ -37,7 +37,6 @@ public class DentistVisitEntity {
     public DentistVisitEntity(Timestamp visitTime, String dentistName, String familyDoctorName) {
         this.visitTime = visitTime;
         this.dentistName = dentistName;
-
         this.familyDoctorName = familyDoctorName;
     }
 
