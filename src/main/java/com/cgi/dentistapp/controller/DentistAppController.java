@@ -26,9 +26,9 @@ public class DentistAppController extends WebMvcConfigurerAdapter {
 
     @Autowired
     private DentistVisitService dentistVisitService;
-
     Logger logger = LoggerFactory.getLogger(DentistAppController.class);
 
+    // Dropdown listi perearstide nimed
     private final List<FamilyDoctor> familyDoctors = Arrays.asList(
             new FamilyDoctor("Mrs", "Doctor"),
             new FamilyDoctor("Mr", "Doctor")
@@ -54,11 +54,13 @@ public class DentistAppController extends WebMvcConfigurerAdapter {
             return "form";
         }
 
+        // Kontrollib, kas on visiitide kattuvusi
         if(dentistVisitService.isVisitOverlaping(dentistVisitDTO)){
             logger.error("Error in registerform posting: overlaping visits!");
             return "redirect:/overlaping";
         }
 
+        // Veateadete puudumisel lisab visiidi andmebaasi
         dentistVisitService.addVisit(dentistVisitDTO);
         logger.info("Successful added an visit:" +
                 dentistVisitDTO.getDentistName() + ", " +
@@ -67,6 +69,7 @@ public class DentistAppController extends WebMvcConfigurerAdapter {
         return "redirect:/results";
     }
 
+    // Visiitide kuvamine visits lehel
     @GetMapping("visits")
     public String showRegistrations(Model model,
                              @ModelAttribute("searchQuery") RegistrationsDTO dto) {

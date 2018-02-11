@@ -20,10 +20,20 @@ public class DentistVisitDao {
         entityManager.persist(visit);
     }
 
+    /**
+     * Tagastab andmebaasist kõik visiidid.
+     *
+     * @return DentistVisitEntity objektide list, mis on hetkel andmebaasis
+     */
     public List<DentistVisitEntity> getAllVisits() {
         return entityManager.createQuery("SELECT e FROM DentistVisitEntity e").getResultList();
     }
 
+    /**
+     * Kontrollib, kas on juba tehtud registreering sama arsti juurde sama kellaaja ning kuupäevaga.
+     *
+     * @return Kattuvate visiitide koguarv
+     */
     public long countOverlaps(Timestamp visitTime, String dentistName) {
         return entityManager.createQuery(
                 "SELECT COUNT (e) FROM DentistVisitEntity e " +

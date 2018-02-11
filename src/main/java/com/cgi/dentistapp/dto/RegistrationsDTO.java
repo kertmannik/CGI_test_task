@@ -4,7 +4,9 @@ import org.springframework.format.annotation.DateTimeFormat;
 
 import javax.validation.constraints.Size;
 import java.time.LocalDateTime;
-
+/**
+ * The object which is used to register new visits in the form page.
+ */
 public class RegistrationsDTO {
 
     @Size(max = 50)

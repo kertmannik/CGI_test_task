@@ -10,8 +10,8 @@ import java.time.LocalDateTime;
 
 /**
  * Created by serkp on 2.03.2017.
+ * The object which is used to display visits on the visits page.
  */
-
 @NoArgsConstructor
 @AllArgsConstructor
 public class DentistVisitDTO {
